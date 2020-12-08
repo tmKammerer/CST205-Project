@@ -1,7 +1,7 @@
 import PIL
 from PySide2 import QWidget, 
 
-RGB_List={'Red':['cName: Red', 'cTuple':(255,0,0),'cHex':'#FF0000'],
+RGB_List={'Red':['cName': 'Red', 'cTuple':(255,0,0),'cHex':'#FF0000'],
  'Green':['cName':'Green', 'cTuple':(0,128,0), 'cHex':'#008000'], 'Blue':['cName':'Blue', 'cTuple':(0,0,255), 'cHex':'#0000FF']
  'Yellow':['cName':'Yellow', 'cTuple':(255,255,0), 'cHex':'#FFFF00'], 'Gold':['cName':'Gold', 'cTuple':(255,215,0), 'cHex':'#FFD700'],
  'Magenta':['cName':'Magenta', 'cTuple':(255,0,255), 'cHex':'#FF00FF'], 'Bisque':['cName':'Bisque', 'cTuple':(255,228,196), 'cHex':'#FFE4C4'],
