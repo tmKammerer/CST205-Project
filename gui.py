@@ -7,21 +7,32 @@ class MyWindow(QWidget):
 
     self.setWindowTitle("Color Calculator")
     self.label3 = QLabel('Hello! Enter your RGB value or HEX values to find your desired color.  ')
-    self.label1 = QLabel('Input: ')
+    self.label1 = QLabel('Input R: ')
     self.line_edit = QLineEdit()
+    self.labelg = QLabel('Input G: ')
+    self.lineg_edit = QLineEdit()
+    self.labelb = QLabel('Input B: ')
+    self.lineb_edit = QLineEdit()
 
     self.label2 = QLabel('Input: ')
     self.line2_edit = QLineEdit()
 
-    hbox1 = QVBoxLayout()
-    hbox1.addWidget(self.label3)
-    hbox1.addWidget(self.label1)
-    hbox1.addWidget(self.line_edit)
-    hbox1.addWidget(self.label2)
-    hbox1.addWidget(self.line2_edit)
+    vbox1 = QVBoxLayout()
+    hbox = QHBoxLayout()
+    vbox1.addWidget(self.label3)
+    vbox1.addWidget(self.label1)
+    vbox1.addWidget(self.line_edit)
+    vbox1.addWidget(self.labelg)
+    vbox1.addWidget(self.lineg_edit)
+    vbox1.addWidget(self.labelb)
+    vbox1.addWidget(self.lineb_edit)
+    
+    vbox1.addWidget(self.label2)
+    vbox1.addWidget(self.line2_edit)
 
     gbox1 = QGroupBox('Welcome to the color calculator!')
-    gbox1.setLayout(hbox1)
+    gbox1.setLayout(vbox1)
+    gbox1.setLayout(hbox)
 
    
 
