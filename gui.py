@@ -67,19 +67,19 @@ class MyWindow(QWidget):
         hbox = QHBoxLayout()
         gbox1.setLayout(hbox)
         
-RGB_list=[]
 
 
 
 
-for x in RGB_list:
-  if color==x[cTuple]:
+
 
 
     @Slot()
     def on_click(self):
         self.my_lbl.setText('Button clicked')
         self.repaint()
+        for x in RGB_list:
+          if color==x[cTuple]:
 
 app = QApplication([])
 my_win = MyWindow()
