@@ -24,6 +24,15 @@ Grayscale_List=[{'cName':'Black', 'cTuple':(0,0,0), 'cHex':'#000000'}, {'cName':
   {'cName':'Silver','cTuple':(192,192,192), 'cHex':'#C0C0C0'}, {'cName':'Gainsboro', 'cTuple':(220,220,220), 'cHex':'#DCDCDC'},
   {'cName':'White', 'cTuple':(255,255,255), 'cHex':'#FFFFFF'}]
 
+class NewWindow(QWidget):
+  def __init__(self):
+    super().__init__()
+    
+    #Window Title
+    self.setWindowTitle(f"{RGB_List['cName']})
+    
+    
+  
 class MyWindow(QWidget):
     def __init__(self):
         super().__init__()
