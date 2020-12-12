@@ -21,6 +21,6 @@ Grayscale_List={'grayscale':[{'cName':'Black', 'cTuple':(0,0,0), 'cHex':'#000000
 
 for color in RGB_List:
   if colormatch == color[cTuple]:
-    print({f'color[cName]}')
+    print({f'{color[cName]}')
     print(f'{color[cHex]}')
     
