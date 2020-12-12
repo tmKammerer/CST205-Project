@@ -55,8 +55,8 @@ class MyWindow(QWidget):
         radiobutton.toggled.connect(self.onColorTypeClicked)
         vbox1.addWidget(radiobutton)
 
-        radiobutton = QRadioButton("HEX")
-        radiobutton.type = "HEX"
+        radiobutton = QRadioButton("Grayscale")
+        radiobutton.type = "Grayscale"
         radiobutton.toggled.connect(self.onColorTypeClicked)
         vbox1.addWidget(radiobutton)
 
