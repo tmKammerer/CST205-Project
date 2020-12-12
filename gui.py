@@ -49,6 +49,14 @@ class MyWindow(QWidget):
 
         hbox = QHBoxLayout()
         gbox1.setLayout(hbox)
+        
+serach_list=[]
+
+
+
+
+for x in search_list:
+  if 
 
     @Slot()
     def on_click(self):
