@@ -9,8 +9,6 @@ class MyWindow(QWidget):
 
 
         self.setWindowTitle("Color Calculator")
-        #Label 
-        
         self.label3 = QLabel('Hello! Enter your RGB value or HEX values to find your desired color.  ')
         self.label1 = QLabel('Input R: ')
         self.line_edit = QLineEdit()
@@ -33,8 +31,13 @@ class MyWindow(QWidget):
         vbox1.addWidget(self.label2)
         vbox1.addWidget(self.line2_edit)
 
-        #Add button 
-         
+        gbox1 = QGroupBox('Welcome to the color calculator!')
+        gbox1.setLayout(vbox1)
+        
+        mbox = QVBoxLayout()
+        mbox.addWidget(gbox1)
+
+        
         self.my_btn = QPushButton("Submit")
         self.my_lbl = QLabel('Button not clicked')
         self.my_btn.clicked.connect(self.on_click)
@@ -43,9 +46,6 @@ class MyWindow(QWidget):
         self.setLayout(vbox1)
         self.setLayout(mbox)
 
-        
-        mbox = QVBoxLayout()
-        mbox.addWidget(gbox1)
         hbox = QHBoxLayout()
         gbox1.setLayout(hbox)
 
