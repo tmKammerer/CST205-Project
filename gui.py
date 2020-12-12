@@ -71,7 +71,10 @@ class MyWindow(QWidget):
 
 
 
-
+for color in RGB_List:
+  if colormatch == color[cTuple]:
+    print({color[cName]})
+    print({color[cHex]})
 
 
     @Slot()
