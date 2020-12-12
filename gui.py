@@ -50,13 +50,14 @@ class MyWindow(QWidget):
         hbox = QHBoxLayout()
         gbox1.setLayout(hbox)
         
-serach_list=[]
+RGB_list=[]
 
 
 
 
-for x in search_list:
-  if 
+for x in RGB_list:
+  if color==x[cTuple]:
+
 
     @Slot()
     def on_click(self):
