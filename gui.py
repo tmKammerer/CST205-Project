@@ -119,7 +119,7 @@ class MyWindow(QWidget):
                 color, 2
               )
               cv2.imshow("Choice Color", img)
-              cv2.waitKey(
+              cv2.waitKey()
         else if radioButton.type == "Grayscale":
           for x in Grayscale_List:
             if color == x['cTuple']:
