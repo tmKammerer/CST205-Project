@@ -34,9 +34,8 @@ class NewWindow(QWidget):
     super().__init__()
     
     #Window Title
-    self.gui=tK(className=f'{colorChoice['cName']}')
+    self.gui=tK('Your Color')
     self.gui.geometry("400x400")
-    self.gui.configure(bg=f'{colorChoice['cTuple']}')
     
     
   
