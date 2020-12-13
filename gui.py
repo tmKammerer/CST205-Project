@@ -34,8 +34,9 @@ class NewWindow(QWidget):
     super().__init__()
     
     #Window Title
-    self.setWindowTitle(colorChoice['cName'])
-    self.gui= tK()
+    self.gui=tK(className=f'{colorChoice['cName']})
+    self.gui.geometry("400x400")
+    self.gui.configure(bg=f'{colorChoice['cTuple']})
     
     
   
@@ -118,10 +119,15 @@ for color in RGB_List:
     def on_click(self):
         self.my_lbl.setText('Button clicked')
         self.repaint()
-        if radioButton.type=="RGB"
+        color= (self.liner_edit, self.lineg_edit, self.lineb_edit)
+        if radioButton.type=="RGB":
           for x in RGB_list:
-            if color==x[cTuple]:
+            if color==x['cTuple']:
               self.newWin= NewWindow(RGB_List[x])
+        else if radioButton.type=="Grayscale":
+          for x in Grayscale_List:
+            if color == x['cTuple']:
+              self.newWin= NewWindow(Grayscale_list[x])
 
     
     def onColorTypeClicked(self):
