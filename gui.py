@@ -9,28 +9,37 @@ import cv2
 # New imports for adding radio button
 
 
+RGB_List = [{'cName': 'Red', 'cTuple': (255, 0, 0), 'cHex': '#FF0000'},
+ {'cName': 'Green', 'cTuple': (0, 128, 0), 'cHex': '#008000'}, {
+                               'cName': 'Blue', 'cTuple': (0, 0, 255), 'cHex': '#0000FF'},
+ {'cName': 'Yellow', 'cTuple': (255, 255, 0), 'cHex': '#FFFF00'}, {
+                                'cName': 'Gold', 'cTuple': (255, 215, 0), 'cHex': '#FFD700'},
+ {'cName': 'Magenta', 'cTuple': (255, 0, 255), 'cHex': '#FF00FF'}, {
+                                 'cName': 'Bisque', 'cTuple': (255, 228, 196), 'cHex': '#FFE4C4'},
+ {'cName': 'Indigo', 'cTuple': (75, 0, 130), 'cHex': '#4B0082'}, {
+                                'cName': 'Turquoise', 'cTuple': (64, 224, 208), 'cHex': '#40E0D0'},
+ {'cName': 'Chocolate', 'cTuple': (210, 105, 30), 'cHex': '#D2691E'}, {
+                                   'cName': 'Olive', 'cTuple': (128, 128, 0), 'cHex': '#808000'},
+ {'cName': 'Salmon', 'cTuple': (250, 128, 114), 'cHex': '#FA8072'}, {
+                                'cName': 'Orange', 'cTuple': (255, 165, 0), 'cHex': '#FFA500'},
+ {'cName': 'Teal', 'cTuple': (0, 128, 128), 'cHex': '#008080'}, {
+                              'cName': 'Purple', 'cTuple': (128, 0, 128), 'cHex': '#800080'},
+ {'cName': 'Tan', 'cTuple': (210, 180, 140), 'cHex': '#D2B48C'}, {
+                             'cName': 'Lime', 'cTuple': (0, 255, 0), 'cHex': '#00FF00'},
+ {'cName': 'Coral', 'cTuple': (255, 127, 80), 'cHex': '#FF7F50'}, {
+                               'cName': 'Violet', 'cTuple': (238, 130, 238), 'cHex': '#EE82EE'},
+ {'cName': 'Khaki', 'cTuple': (240, 230, 140), 'cHex': '#F0E68C'}]
+
+Grayscale_List = [{'cName': 'Black', 'cTuple': (0, 0, 0), 'cHex': '#000000'}, {'cName': 'Dark Charcoal', 'cTuple': (51, 51, 51), 'cHex': '#333333'},
+  {'cName': 'Spanish Gray', 'cTuple': (153, 153, 153), 'cHex': '#999999'}, {
+                                       'cName': 'Gray', 'cTuple': (128, 128, 128), 'cHex': '#808080'},
+  {'cName': 'Silver', 'cTuple': (192, 192, 192), 'cHex': '#C0C0C0'}, {
+                                 'cName': 'Gainsboro', 'cTuple': (220, 220, 220), 'cHex': '#DCDCDC'},
+  {'cName': 'White', 'cTuple': (255, 255, 255), 'cHex': '#FFFFFF'}]
+
+img = cv2.imread('jeanne-hebuterne.jpg')
 
 
-RGB_List=[{'cName': 'Red', 'cTuple':(255,0,0),'cHex':'#FF0000'},
- {'cName':'Green', 'cTuple':(0,128,0), 'cHex':'#008000'}, {'cName':'Blue', 'cTuple':(0,0,255), 'cHex':'#0000FF'},
- {'cName':'Yellow', 'cTuple':(255,255,0), 'cHex':'#FFFF00'}, {'cName':'Gold', 'cTuple':(255,215,0), 'cHex':'#FFD700'},
- {'cName':'Magenta', 'cTuple':(255,0,255), 'cHex':'#FF00FF'}, {'cName':'Bisque', 'cTuple':(255,228,196), 'cHex':'#FFE4C4'},
- {'cName':'Indigo', 'cTuple':(75,0,130), 'cHex':'#4B0082'}, {'cName':'Turquoise', 'cTuple':(64,224,208), 'cHex':'#40E0D0'},
- {'cName':'Chocolate', 'cTuple':(210,105,30), 'cHex':'#D2691E'},{'cName':'Olive', 'cTuple':(128,128,0), 'cHex':'#808000'},
- {'cName':'Salmon', 'cTuple':(250,128,114), 'cHex':'#FA8072'}, {'cName':'Orange', 'cTuple':(255,165,0), 'cHex':'#FFA500'},
- {'cName':'Teal', 'cTuple':(0,128,128), 'cHex':'#008080'}, {'cName':'Purple', 'cTuple':(128,0,128), 'cHex':'#800080'},
- {'cName':'Tan', 'cTuple':(210,180,140), 'cHex':'#D2B48C'}, {'cName':'Lime', 'cTuple':(0,255,0), 'cHex':'#00FF00'},
- {'cName':'Coral', 'cTuple':(255,127,80), 'cHex':'#FF7F50'}, {'cName':'Violet', 'cTuple':(238,130,238), 'cHex':'#EE82EE'},
- {'cName':'Khaki', 'cTuple':(240,230,140), 'cHex':'#F0E68C'}]
-
-Grayscale_List=[{'cName':'Black', 'cTuple':(0,0,0), 'cHex':'#000000'}, {'cName':'Dark Charcoal', 'cTuple':(51,51,51), 'cHex': '#333333'},
-  {'cName':'Spanish Gray', 'cTuple':(153,153,153), 'cHex':'#999999'}, {'cName':'Gray', 'cTuple':(128,128,128), 'cHex':'#808080'},
-  {'cName':'Silver','cTuple':(192,192,192), 'cHex':'#C0C0C0'}, {'cName':'Gainsboro', 'cTuple':(220,220,220), 'cHex':'#DCDCDC'},
-  {'cName':'White', 'cTuple':(255,255,255), 'cHex':'#FFFFFF'}]
-
-img=cv2.imread('jeanne-hebuterne.jpg')
-    
-  
 class MyWindow(QWidget):
     def __init__(self):
         super().__init__()
@@ -44,7 +53,6 @@ class MyWindow(QWidget):
 
         # Created a box layout
         vbox1 = QVBoxLayout()
-
 
         # adding radio button
         radiobutton = QRadioButton("RGB")
@@ -64,7 +72,7 @@ class MyWindow(QWidget):
         self.lineg_edit = QLineEdit()
         self.label_b = QLabel('Input B: ')
         self.lineb_edit = QLineEdit()
-        
+
         # This line_edit input is for Hex
         self.label_hex = QLabel('Input Hex: ')
         self.lineh_edit = QLineEdit()
@@ -95,53 +103,43 @@ class MyWindow(QWidget):
 
         hbox = QHBoxLayout()
         gbox1.setLayout(hbox)
-        
-
-<<<<<<< HEAD
-for color in RGB_List:
-  if colormatch == color[cTuple]:
-    print({color[cName]})
-    print({color[cHex]})
-
-=======
->>>>>>> bbb5905d215c38227d6fb9a4e4224e38e073968a
 
     @Slot()
     def on_click(self):
         self.my_lbl.setText('Button clicked')
         self.repaint()
-        color= (self.liner_edit, self.lineg_edit, self.lineb_edit)
-        if radioButton.type=="RGB":
+        color = (self.liner_edit, self.lineg_edit, self.lineb_edit)
+        if radioButton.type == "RGB":
           for x in RGB_list:
-            if color==x['cTuple']:
+            if color == x['cTuple']:
               self.cv2.rectangle(
                 img,
                 (185, 154),
                 (265, 334),
-                color,2
+                color, 2
               )
               cv2.imshow("Choice Color", img)
               cv2.waitKey(
-        else if radioButton.type=="Grayscale":
+        else if radioButton.type == "Grayscale":
           for x in Grayscale_List:
             if color == x['cTuple']:
               self.cv2.rectangle(
                 img,
                 (185, 154),
                 (265, 334),
-                color,2
+                color, 2
               )
               cv2.imshow("Choice Color", img)
               cv2.waitKey()
 
-    
+
     def onColorTypeClicked(self):
-        radioButton = self.sender()
+        radioButton=self.sender()
         if radioButton.isChecked():
             print("Color Type is %s" % (radioButton.type))
 
 
-app = QApplication([])
-my_win = MyWindow()
+app=QApplication([])
+my_win=MyWindow()
 my_win.show()
 app.exec_()
