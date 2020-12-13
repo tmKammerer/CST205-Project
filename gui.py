@@ -46,8 +46,8 @@ class MyWindow(QWidget):
         radiobutton.toggled.connect(self.onColorTypeClicked)
         vbox1.addWidget(radiobutton)
 
-        radiobutton = QRadioButton("HEX")
-        radiobutton.type = "HEX"
+        radiobutton = QRadioButton("Grayscale")
+        radiobutton.type = "Grayscale"
         radiobutton.toggled.connect(self.onColorTypeClicked)
         vbox1.addWidget(radiobutton)
 
@@ -90,9 +90,6 @@ class MyWindow(QWidget):
         gbox1.setLayout(hbox)
         
 
-
-
-
 for color in RGB_List:
   if colormatch == color[cTuple]:
     print({color[cName]})
@@ -106,6 +103,7 @@ for color in RGB_List:
         for x in RGB_list:
           if color==x[cTuple]:
 
+    
     def onColorTypeClicked(self):
         radioButton = self.sender()
         if radioButton.isChecked():
