@@ -4,7 +4,12 @@ from PySide2.QtWidgets import (QApplication, QWidget, QLabel, QDialog, QGroupBox
                                QRadioButton)
 from PySide2.QtCore import Slot
 
+from PIL import Image
+
+from tkinter import *
 # New imports for adding radio button
+
+
 
 
 RGB_List=[{'cName': 'Red', 'cTuple':(255,0,0),'cHex':'#FF0000'},
@@ -25,11 +30,12 @@ Grayscale_List=[{'cName':'Black', 'cTuple':(0,0,0), 'cHex':'#000000'}, {'cName':
   {'cName':'White', 'cTuple':(255,255,255), 'cHex':'#FFFFFF'}]
 
 class NewWindow(QWidget):
-  def __init__(self):
+  def __init__(self, colorChoice):
     super().__init__()
     
     #Window Title
-    self.setWindowTitle(f"{RGB_List['cName']})
+    self.setWindowTitle(colorChoice['cName'])
+    self.gui= tK()
     
     
   
@@ -100,20 +106,14 @@ class MyWindow(QWidget):
         
 
 
-
-
-for color in RGB_List:
-  if colormatch == color[cTuple]:
-    print({color[cName]})
-    print({color[cHex]})
-
-
     @Slot()
     def on_click(self):
         self.my_lbl.setText('Button clicked')
         self.repaint()
-        for x in RGB_list:
-          if color==x[cTuple]:
+        if radioButton.type=="RGB"
+          for x in RGB_list:
+            if color==x[cTuple]:
+              self.newWin= NewWindow(RGB_List[x])
 
     def onColorTypeClicked(self):
         radioButton = self.sender()
