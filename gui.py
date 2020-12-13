@@ -5,8 +5,7 @@ from PySide2.QtWidgets import (QApplication, QWidget, QLabel, QDialog, QGroupBox
 from PySide2.QtCore import Slot
 
 from PIL import Image
-
-from tkinter import *
+import cv2
 # New imports for adding radio button
 
 
@@ -29,14 +28,7 @@ Grayscale_List=[{'cName':'Black', 'cTuple':(0,0,0), 'cHex':'#000000'}, {'cName':
   {'cName':'Silver','cTuple':(192,192,192), 'cHex':'#C0C0C0'}, {'cName':'Gainsboro', 'cTuple':(220,220,220), 'cHex':'#DCDCDC'},
   {'cName':'White', 'cTuple':(255,255,255), 'cHex':'#FFFFFF'}]
 
-class NewWindow(QWidget):
-  def __init__(self, colorChoice):
-    super().__init__()
-    
-    #Window Title
-    self.gui=tK('Your Color')
-    self.gui.geometry("400x400")
-    
+img=cv2.imread('jeanne-hebuterne.jpg')
     
   
 class MyWindow(QWidget):
@@ -114,11 +106,25 @@ class MyWindow(QWidget):
         if radioButton.type=="RGB":
           for x in RGB_list:
             if color==x['cTuple']:
-              self.newWin= NewWindow(RGB_List[x])
+              self.cv2.rectangle(
+                img,
+                (185, 154),
+                (265, 334),
+                color,2
+              )
+              cv2.imshow("Choice Color", img)
+              cv2.waitKey(
         else if radioButton.type=="Grayscale":
           for x in Grayscale_List:
             if color == x['cTuple']:
-              self.newWin= NewWindow(Grayscale_list[x])
+              self.cv2.rectangle(
+                img,
+                (185, 154),
+                (265, 334),
+                color,2
+              )
+              cv2.imshow("Choice Color", img)
+              cv2.waitKey()
 
     def onColorTypeClicked(self):
         radioButton = self.sender()
