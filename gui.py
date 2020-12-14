@@ -7,7 +7,6 @@ from PIL import Image
 import cv2
 # New imports for adding radio button
 
-
 RGB_List = [{'cName': 'Red', 'cTuple': (255, 0, 0), 'cHex': '#FF0000'},
  {'cName': 'Green', 'cTuple': (0, 128, 0), 'cHex': '#008000'}, {
                                'cName': 'Blue', 'cTuple': (0, 0, 255), 'cHex': '#0000FF'},
@@ -53,13 +52,16 @@ class MyWindow(QWidget):
         # Created a box layout
         vbox1 = QVBoxLayout()
         
-
+        #Red channel entree
         self.label_r = QLabel('Input R: ')
         self.liner_edit = QLineEdit()
+        #green channel entree
         self.label_g = QLabel('Input G: ')
         self.lineg_edit = QLineEdit()
+        #blue channel entree
         self.label_b = QLabel('Input B: ')
         self.lineb_edit = QLineEdit()
+        
 
         vbox1.addWidget(self.label_title)
         vbox1.addWidget(self.label_r)
@@ -76,7 +78,7 @@ class MyWindow(QWidget):
         mbox.addWidget(gbox1)
 
         self.my_btn = QPushButton("Submit")
-        self.my_lbl = QLabel('Button not clicked')
+        self.my_lbl = QLabel('Resulted color info here')
         self.my_btn.clicked.connect(self.on_click)
         vbox1.addWidget(self.my_btn)
         vbox1.addWidget(self.my_lbl)
@@ -89,26 +91,30 @@ class MyWindow(QWidget):
     @Slot()
     def on_click(self):
       
-      self.redText= int(self.liner_edit.text())
-      self.greenText= int(self.lineg_edit.text())
-      self.blueText= int(self.lineb_edit.text())
+        self.redText= int(self.liner_edit.text())
+        self.greenText= int(self.lineg_edit.text())
+        self.blueText= int(self.lineb_edit.text())
+
         
-      self.color = (self.redText, self.greenText, self.blueText)
-      for x in RGB_List:
-        if self.color == x['cTuple']:
-          self.my_lbl.setText(f"Tuple: {x['cTuple']}, Name: {x['cName']}, Hex: {x['cHex']}")
-          self.repaint()
-          cv2.rectangle(
-            img,
-            (750, 600),
-            (700, 800),
-            (self.blueText, self.greenText, self.redText), 2
-          )
-          cv2.imshow("Choice Color", img)
-          cv2.waitKey()
-        else:
-          self.my_lbl.setText("Yeah, nah, not with us, bud")
-          self.repaint()
+        self.color = (self.redText, self.greenText, self.blueText)
+        for x in RGB_List:
+          if self.color == x['cTuple']:
+            self.my_lbl.setText(f"Tuple: {x['cTuple']}, Name: {x['cName']}, Hex: {x['cHex']}")
+            self.repaint()
+            #Image prints out here, I don't know why, but the red and blue channels are reversed, this is how we got it to work
+            cv2.rectangle(
+              img,
+              (0, 0),
+              (1569, 2048),
+              (self.blueText, self.greenText, self.redText), -1
+            )
+            cv2.imshow("Who's Jeanne?", img)
+            cv2.waitKey()
+          else:
+            self.my_lbl.setText("You wanna try again?")
+            self.repaint()
+        
+        
 
 
 
