@@ -88,7 +88,7 @@ class MyWindow(QWidget):
 
     @Slot()
     def on_click(self):
-
+      
       self.redText= int(self.liner_edit.text())
       self.greenText= int(self.lineg_edit.text())
       self.blueText= int(self.lineb_edit.text())
@@ -100,12 +100,16 @@ class MyWindow(QWidget):
           self.repaint()
           cv2.rectangle(
             img,
-            (185, 154),
-            (265, 334),
-            (self.redText, self.greenText, self.blueText), 2
+            (750, 600),
+            (700, 800),
+            (self.blueText, self.greenText, self.redText), 2
           )
           cv2.imshow("Choice Color", img)
           cv2.waitKey()
+        else:
+          self.my_lbl.setText("Yeah, nah, not with us, bud")
+          self.repaint()
+
 
 
 
