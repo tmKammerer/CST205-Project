@@ -53,15 +53,15 @@ class MyWindow(QWidget):
         vbox1 = QVBoxLayout()
 
         # adding radio button
-        radiobutton = QRadioButton("RGB")
-        radiobutton.setChecked(True)
-        radiobutton.type = "RGB"
-        radiobutton.toggled.connect(self.onColorTypeClicked)
+        self.radiobutton = QRadioButton("RGB")
+        self.radiobutton.setChecked(True)
+        self.radiobutton.type = "RGB"
+        self.radiobutton.toggled.connect(self.onColorTypeClicked)
         vbox1.addWidget(radiobutton)
 
-        radiobutton = QRadioButton("Grayscale")
-        radiobutton.type = "Grayscale"
-        radiobutton.toggled.connect(self.onColorTypeClicked)
+        self.radiobutton = QRadioButton("Grayscale")
+        self.radiobutton.type = "Grayscale"
+        self.radiobutton.toggled.connect(self.onColorTypeClicked)
         vbox1.addWidget(radiobutton)
 
         self.label_r = QLabel('Input R: ')
@@ -106,7 +106,7 @@ class MyWindow(QWidget):
     def on_click(self):
         
         self.color = (self.liner_edit, self.lineg_edit, self.lineb_edit)
-        if radioButton.type == "RGB":
+        if self.radioButton.type == "RGB":
           for x in RGB_list:
             if self.color == x['cTuple']:
               self.my_lbl.setText(f"Tuple: {x['cTuple']}, Name: {x['cName']}, Hex: {x['cHex']}")
@@ -119,7 +119,7 @@ class MyWindow(QWidget):
               )
               self.cv2.imshow("Choice Color", img)
               self.cv2.waitKey()
-        elif radioButton.type == "Grayscale":
+        elif self.radioButton.type == "Grayscale":
           for x in Grayscale_List:
             if color == x['cTuple']:
               self.cv2.rectangle(
