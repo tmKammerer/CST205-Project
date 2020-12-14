@@ -98,14 +98,14 @@ class MyWindow(QWidget):
         if self.color == x['cTuple']:
           self.my_lbl.setText(f"Tuple: {x['cTuple']}, Name: {x['cName']}, Hex: {x['cHex']}")
           self.repaint()
-          self.cv2.rectangle(
+          cv2.rectangle(
             img,
             (185, 154),
             (265, 334),
-            self.color, 2
+            (self.redText, self.greenText, self.blueText), 2
           )
-          self.cv2.imshow("Choice Color", img)
-          self.cv2.waitKey()
+          cv2.imshow("Choice Color", img)
+          cv2.waitKey()
 
 
 
