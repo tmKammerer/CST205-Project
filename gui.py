@@ -104,20 +104,21 @@ class MyWindow(QWidget):
 
     @Slot()
     def on_click(self):
-        self.my_lbl.setText('Button clicked')
-        self.repaint()
-        color = (self.liner_edit, self.lineg_edit, self.lineb_edit)
+        
+        self.color = (self.liner_edit, self.lineg_edit, self.lineb_edit)
         if radioButton.type == "RGB":
           for x in RGB_list:
-            if color == x['cTuple']:
+            if self.color == x['cTuple']:
+              self.my_lbl.setText(f"Tuple: {x['cTuple']}, Name: {x['cName']}, Hex: {x['cHex']}")
+              self.repaint()
               self.cv2.rectangle(
                 img,
                 (185, 154),
                 (265, 334),
-                color, 2
+                self.color, 2
               )
-              cv2.imshow("Choice Color", img)
-              cv2.waitKey()
+              self.cv2.imshow("Choice Color", img)
+              self.cv2.waitKey()
         elif radioButton.type == "Grayscale":
           for x in Grayscale_List:
             if color == x['cTuple']:
@@ -125,7 +126,7 @@ class MyWindow(QWidget):
                 img,
                 (185, 154),
                 (265, 334),
-                color, 2
+                self.color, 2
               )
               cv2.imshow("Choice Color", img)
               cv2.waitKey()
