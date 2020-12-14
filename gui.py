@@ -26,14 +26,15 @@ RGB_List = [{'cName': 'Red', 'cTuple': (255, 0, 0), 'cHex': '#FF0000'},
                              'cName': 'Lime', 'cTuple': (0, 255, 0), 'cHex': '#00FF00'},
  {'cName': 'Coral', 'cTuple': (255, 127, 80), 'cHex': '#FF7F50'}, {
                                'cName': 'Violet', 'cTuple': (238, 130, 238), 'cHex': '#EE82EE'},
- {'cName': 'Khaki', 'cTuple': (240, 230, 140), 'cHex': '#F0E68C'}]
-
-Grayscale_List = [{'cName': 'Black', 'cTuple': (0, 0, 0), 'cHex': '#000000'}, {'cName': 'Dark Charcoal', 'cTuple': (51, 51, 51), 'cHex': '#333333'},
+ {'cName': 'Khaki', 'cTuple': (240, 230, 140), 'cHex': '#F0E68C'}, {'cName': 'Black', 'cTuple': (0, 0, 0), 'cHex': '#000000'}, 
+                                                                   {'cName': 'Dark Charcoal', 'cTuple': (51, 51, 51), 'cHex': '#333333'},
   {'cName': 'Spanish Gray', 'cTuple': (153, 153, 153), 'cHex': '#999999'}, {
                                        'cName': 'Gray', 'cTuple': (128, 128, 128), 'cHex': '#808080'},
   {'cName': 'Silver', 'cTuple': (192, 192, 192), 'cHex': '#C0C0C0'}, {
                                  'cName': 'Gainsboro', 'cTuple': (220, 220, 220), 'cHex': '#DCDCDC'},
   {'cName': 'White', 'cTuple': (255, 255, 255), 'cHex': '#FFFFFF'}]
+
+Grayscale_List = []
 
 img = cv2.imread('jeanne-hebuterne.jpg')
 
@@ -47,22 +48,11 @@ class MyWindow(QWidget):
 
         # Need input of R,G,B in order to get number
         self.label_title = QLabel(
-            'Hello! Enter your RGB value or HEX values to find your desired color.  ')
+            'Hello! Enter your RGB value.  ')
 
         # Created a box layout
         vbox1 = QVBoxLayout()
-
-        # adding radio button
-        radiobutton = QRadioButton("RGB")
-        radiobutton.setChecked(True)
-        radiobutton.type = "RGB"
-        radiobutton.toggled.connect(self.onColorTypeClicked)
-        vbox1.addWidget(radiobutton)
-
-        radiobutton = QRadioButton("Grayscale")
-        radiobutton.type = "Grayscale"
-        radiobutton.toggled.connect(self.onColorTypeClicked)
-        vbox1.addWidget(radiobutton)
+        
 
         self.label_r = QLabel('Input R: ')
         self.liner_edit = QLineEdit()
@@ -106,7 +96,6 @@ class MyWindow(QWidget):
     def on_click(self):
         
         self.color = (self.liner_edit, self.lineg_edit, self.lineb_edit)
-        if radioButton.type == "RGB":
           for x in RGB_list:
             if self.color == x['cTuple']:
               self.my_lbl.setText(f"Tuple: {x['cTuple']}, Name: {x['cName']}, Hex: {x['cHex']}")
@@ -119,23 +108,7 @@ class MyWindow(QWidget):
               )
               self.cv2.imshow("Choice Color", img)
               self.cv2.waitKey()
-        elif radioButton.type == "Grayscale":
-          for x in Grayscale_List:
-            if color == x['cTuple']:
-              self.cv2.rectangle(
-                img,
-                (185, 154),
-                (265, 334),
-                self.color, 2
-              )
-              cv2.imshow("Choice Color", img)
-              cv2.waitKey()
 
-
-    def onColorTypeClicked(self):
-        self.radioButton=self.sender()
-        if self.radioButton.isChecked():
-            print("Color Type is %s" % (radioButton.type))
 
 
 app=QApplication([])
