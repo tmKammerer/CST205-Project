@@ -3,6 +3,7 @@ from PySide2.QtWidgets import (QApplication, QWidget, QLabel, QDialog, QGroupBox
                                QHBoxLayout, QVBoxLayout, QPushButton, QLineEdit,
                                QRadioButton)
 from PySide2.QtCore import Slot
+from PIL import Image
 import cv2
 # New imports for adding radio button
 
@@ -34,7 +35,6 @@ RGB_List = [{'cName': 'Red', 'cTuple': (255, 0, 0), 'cHex': '#FF0000'},
                                  'cName': 'Gainsboro', 'cTuple': (220, 220, 220), 'cHex': '#DCDCDC'},
   {'cName': 'White', 'cTuple': (255, 255, 255), 'cHex': '#FFFFFF'}]
 
-Grayscale_List = []
 
 img = cv2.imread('jeanne-hebuterne.jpg')
 
@@ -61,10 +61,6 @@ class MyWindow(QWidget):
         self.label_b = QLabel('Input B: ')
         self.lineb_edit = QLineEdit()
 
-        # This line_edit input is for Hex
-        self.label_hex = QLabel('Input Hex: ')
-        self.lineh_edit = QLineEdit()
-
         vbox1.addWidget(self.label_title)
         vbox1.addWidget(self.label_r)
         vbox1.addWidget(self.liner_edit)
@@ -72,8 +68,6 @@ class MyWindow(QWidget):
         vbox1.addWidget(self.lineg_edit)
         vbox1.addWidget(self.label_b)
         vbox1.addWidget(self.lineb_edit)
-        vbox1.addWidget(self.label_hex)
-        vbox1.addWidget(self.lineh_edit)
 
         gbox1 = QGroupBox('Welcome to the color calculator!')
         gbox1.setLayout(vbox1)
@@ -94,20 +88,24 @@ class MyWindow(QWidget):
 
     @Slot()
     def on_click(self):
+
+      self.redText= int(self.liner_edit.text())
+      self.greenText= int(self.lineg_edit.text())
+      self.blueText= int(self.lineb_edit.text())
         
-        self.color = (self.liner_edit, self.lineg_edit, self.lineb_edit)
-          for x in RGB_list:
-            if self.color == x['cTuple']:
-              self.my_lbl.setText(f"Tuple: {x['cTuple']}, Name: {x['cName']}, Hex: {x['cHex']}")
-              self.repaint()
-              self.cv2.rectangle(
-                img,
-                (185, 154),
-                (265, 334),
-                self.color, 2
-              )
-              self.cv2.imshow("Choice Color", img)
-              self.cv2.waitKey()
+      self.color = (self.redText, self.greenText, self.blueText)
+      for x in RGB_List:
+        if self.color == x['cTuple']:
+          self.my_lbl.setText(f"Tuple: {x['cTuple']}, Name: {x['cName']}, Hex: {x['cHex']}")
+          self.repaint()
+          self.cv2.rectangle(
+            img,
+            (185, 154),
+            (265, 334),
+            self.color, 2
+          )
+          self.cv2.imshow("Choice Color", img)
+          self.cv2.waitKey()
 
 
 
