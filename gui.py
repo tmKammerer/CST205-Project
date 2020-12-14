@@ -3,8 +3,6 @@ from PySide2.QtWidgets import (QApplication, QWidget, QLabel, QDialog, QGroupBox
                                QHBoxLayout, QVBoxLayout, QPushButton, QLineEdit,
                                QRadioButton)
 from PySide2.QtCore import Slot
-
-from PIL import Image
 import cv2
 # New imports for adding radio button
 
