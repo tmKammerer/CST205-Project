@@ -6,8 +6,8 @@ from PySide2.QtWidgets import (QApplication, QWidget, QLabel, QDialog, QGroupBox
                                QRadioButton)
 from PySide2.QtCore import Slot
 import cv2
-# New imports for adding radio button
 
+#RGB_List with 25 names in a list with dictionaries for each color
 RGB_List = [{'cName': 'Red', 'cTuple': (255, 0, 0), 'cHex': '#FF0000'},
  {'cName': 'Green', 'cTuple': (0, 128, 0), 'cHex': '#008000'}, {
                                'cName': 'Blue', 'cTuple': (0, 0, 255), 'cHex': '#0000FF'},
@@ -35,7 +35,7 @@ RGB_List = [{'cName': 'Red', 'cTuple': (255, 0, 0), 'cHex': '#FF0000'},
                                  'cName': 'Gainsboro', 'cTuple': (220, 220, 220), 'cHex': '#DCDCDC'},
   {'cName': 'White', 'cTuple': (255, 255, 255), 'cHex': '#FFFFFF'}]
 
-
+#the cv2 image that will be used for the color
 img = cv2.imread('jeanne-hebuterne.jpg')
 
 
@@ -91,12 +91,12 @@ class MyWindow(QWidget):
 
     @Slot()
     def on_click(self):
-      
+      #editTexts will be made into int types here
         self.redText= int(self.liner_edit.text())
         self.greenText= int(self.lineg_edit.text())
         self.blueText= int(self.lineb_edit.text())
 
-        
+        #new int types are put into a tuple
         self.color = (self.redText, self.greenText, self.blueText)
         for x in RGB_List:
           if self.color == x['cTuple']:
@@ -119,7 +119,7 @@ class MyWindow(QWidget):
 
 
 
-
+#GUI is made here
 app=QApplication([])
 my_win=MyWindow()
 my_win.show()
