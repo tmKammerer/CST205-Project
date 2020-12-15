@@ -1,5 +1,8 @@
 #Github Repository: https://github.com/tmKammerer/CST205-Project-Color-Window/tree/gui
 #Teammates: Michael Kammerer, Yessica Torrez Hernandez, Quentin Bennett, Ari Garcia
+#Title: Color Window (gui.py)
+#Course: CST205-01
+#Date: 12/14/20
 import sys
 from PySide2.QtWidgets import (QApplication, QWidget, QLabel, QDialog, QGroupBox,
                                QHBoxLayout, QVBoxLayout, QPushButton, QLineEdit,
